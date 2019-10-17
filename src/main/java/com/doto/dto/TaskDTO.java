@@ -5,17 +5,18 @@ import java.util.Date;
 import lombok.Data;
 
 @Data
-public class ListUrl {
+public class TaskDTO {
 
-	private Long listUrlId;
+	private Long taskId;
 
 	private Long listId;
 
-	private String key;
+	private String text;
 
-	private Date createDate;
+	private boolean isDone;
 
 	private boolean isActive;
 
-	private Date revokeDate;
+	private Date createDate;
+
 }

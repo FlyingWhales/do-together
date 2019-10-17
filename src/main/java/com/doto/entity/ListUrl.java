@@ -14,9 +14,6 @@ import javax.validation.constraints.NotBlank;
 
 import org.springframework.data.annotation.CreatedDate;
 
-import lombok.Data;
-
-@Data
 @Entity
 @Table(name = "list_url")
 public class ListUrl {
@@ -46,4 +43,53 @@ public class ListUrl {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "revoke_date")
 	private Date revokeDate;
+
+	public Long getListUrlId() {
+		return listUrlId;
+	}
+
+	public void setListUrlId(Long listUrlId) {
+		this.listUrlId = listUrlId;
+	}
+
+	public Long getListId() {
+		return listId;
+	}
+
+	public void setListId(Long listId) {
+		this.listId = listId;
+	}
+
+	public String getKey() {
+		return key;
+	}
+
+	public void setKey(String key) {
+		this.key = key;
+	}
+
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
+	}
+
+	public Date getRevokeDate() {
+		return revokeDate;
+	}
+
+	public void setRevokeDate(Date revokeDate) {
+		this.revokeDate = revokeDate;
+	}
+	
 }

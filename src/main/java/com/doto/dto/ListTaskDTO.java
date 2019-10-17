@@ -3,7 +3,7 @@ package com.doto.dto;
 import lombok.Data;
 
 @Data
-public class ListTask {
+public class ListTaskDTO {
 
 	private Long listTaskId;
 

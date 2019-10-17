@@ -14,13 +14,10 @@ import javax.validation.constraints.NotBlank;
 
 import org.springframework.data.annotation.CreatedDate;
 
-import lombok.Data;
-
-@Data
 @Entity
 @Table(name = "lists")
 public class List {
-	
+
 	@Id
 	@Column(name = "list_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,5 +35,37 @@ public class List {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "create_date")
 	private Date createDate;
+
+	public Long getListId() {
+		return listId;
+	}
+
+	public void setListId(Long listId) {
+		this.listId = listId;
+	}
+
+	public String getListName() {
+		return listName;
+	}
+
+	public void setListName(String listName) {
+		this.listName = listName;
+	}
+
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
+	}
+
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
 
 }
