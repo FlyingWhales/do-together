@@ -26,22 +26,22 @@ public class ListUrlService {
 		listUrl.setKey(key);
 		listUrl.setRevokeDate(revokeDate);
 		listUrl.setActive(true);
-
+		listUrl.setCreateDate(new Date()); // TODO: dafuq is that? should work by itself
 		listUrlRepository.save(listUrl);
 
 		return key;
 	}
 
 	public void revokeListUrl(Long listUrlId, Long userId) {
-		
+
 		final boolean isAuthorized = listUrlRepository.isUserAuthorizedToList(listUrlId, userId);
-		
+
 		if (isAuthorized) {
 			ListUrl listUrl = listUrlRepository.findById(listUrlId).get();
 			listUrl.setRevokeDate(new Date());
 			listUrlRepository.save(listUrl);
 		}
-		
+
 	}
 
 }

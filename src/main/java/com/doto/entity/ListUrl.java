@@ -23,7 +23,6 @@ public class ListUrl {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long listUrlId;
 
-	@NotBlank
 	@Column(name = "list_id")
 	private Long listId;
 
@@ -32,15 +31,14 @@ public class ListUrl {
 	private String key;
 
 	@CreatedDate
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	@Column(name = "create_date")
 	private Date createDate;
 
-	@NotBlank
 	@Column(name = "is_active")
 	private boolean isActive;
 
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	@Column(name = "revoke_date")
 	private Date revokeDate;
 
