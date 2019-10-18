@@ -11,6 +11,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.data.annotation.CreatedDate;
 
@@ -23,6 +24,7 @@ public class ListUrl {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long listUrlId;
 
+	@NotNull
 	@Column(name = "list_id")
 	private Long listId;
 
@@ -35,6 +37,7 @@ public class ListUrl {
 	@Column(name = "create_date")
 	private Date createDate;
 
+	@NotNull
 	@Column(name = "is_active")
 	private boolean isActive;
 

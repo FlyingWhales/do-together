@@ -34,14 +34,16 @@ public class ListUrlService {
 
 	public void revokeListUrl(Long listUrlId, Long userId) {
 
-		final boolean isAuthorized = listUrlRepository.isUserAuthorizedToList(listUrlId, userId);
-
-		if (isAuthorized) {
+		if (isAuthorized(listUrlId, userId)) {
 			ListUrl listUrl = listUrlRepository.findById(listUrlId).get();
 			listUrl.setRevokeDate(new Date());
 			listUrlRepository.save(listUrl);
 		}
 
+	}
+	
+	private boolean isAuthorized(Long listUrlId, Long userId) {
+		return listUrlRepository.isUserAuthorizedToList(listUrlId, userId);
 	}
 
 }

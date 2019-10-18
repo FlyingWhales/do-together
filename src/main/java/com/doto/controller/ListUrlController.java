@@ -22,7 +22,7 @@ public class ListUrlController {
 	
 	@GetMapping("revoke")
 	public boolean revoke() {
-		//listUrlService.revokeListUrl();
+		listUrlService.revokeListUrl(1L, 1L);
 		return true;
 	}
 }
