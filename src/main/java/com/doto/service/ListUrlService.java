@@ -3,7 +3,6 @@ package com.doto.service;
 import java.util.Date;
 import java.util.UUID;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.doto.entity.ListUrl;
@@ -13,8 +12,11 @@ import com.doto.utils.DotoUtis;
 @Service
 public class ListUrlService {
 
-	@Autowired
-	ListUrlRepository listUrlRepository;
+	final private ListUrlRepository listUrlRepository;
+	
+	public ListUrlService(ListUrlRepository listUrlRepository) {
+		this.listUrlRepository = listUrlRepository;
+	}
 
 	public String generateKey(Long listId, Date revokeDate) {
 

@@ -15,10 +15,14 @@ public class UserService {
 	public boolean emailExists(String email) {
 		return userRepository.countByEmail(email) > 0;
 	}
-	
+
 	public Long saveUser(User input) {
-		 User user = userRepository.save(input);
-		 return user.getUserId();
+		User user = userRepository.save(input);
+		return user.getUserId();
+	}
+
+	public void deactivateUser() {
+		//TODO: implement later
 	}
 
 }
