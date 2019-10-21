@@ -1,5 +1,7 @@
 package com.doto.service;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
 import com.doto.entity.List;
@@ -34,6 +36,10 @@ public class ListService {
 		
 		return savedList;
 		
+	}
+	
+	public Optional<List> getUserLists(Long userId) {
+		return listRepository.findByUserId(userId);
 	}
 
 }
