@@ -10,5 +10,6 @@ import com.doto.entity.List;
 @Repository
 public interface ListRepository extends JpaRepository<List, Long>{
 
-	Optional<List> findByUserId(Long userId);
+	Iterable<List> findByUserId(Long userId);
+	Optional<List> getByUserId(Long userId);
 }

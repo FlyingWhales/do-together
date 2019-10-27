@@ -22,6 +22,9 @@ public class List {
 	@Column(name = "list_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long listId;
+	
+	@Column(name = "user_id")
+	private Long userId;
 
 	@NotBlank
 	@Column(name = "list_name")
