@@ -1,7 +1,5 @@
 package com.doto.service;
 
-import java.util.Optional;
-
 import org.springframework.stereotype.Service;
 
 import com.doto.entity.Task;
@@ -34,7 +32,8 @@ public class TaskService {
 		return false;
 	}
 	
-	public Optional<Task> getTasksByListId(Long listId) {
-		return taskRepository.findTaskByListId(listId);
+	public Iterable<Task> getTasksByListId(Long listId, Long userId) {
+		return taskRepository.findTasksByListId(listId, userId);
+		//return null;
 	}
 }
