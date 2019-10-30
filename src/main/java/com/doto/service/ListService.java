@@ -14,7 +14,7 @@ public class ListService {
 		this.listRepository = listRepository;
 	}
 
-	public List createList(List list, Long userId) throws Exception {
+	public List createList(List list) throws Exception {
 
 		List savedList = listRepository.save(list);
 

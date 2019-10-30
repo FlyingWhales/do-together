@@ -30,7 +30,6 @@ public class List {
 	@Column(name = "list_name")
 	private String listName;
 
-	@NotBlank
 	@Column(name = "is_active")
 	private boolean isActive;
 
@@ -69,6 +68,14 @@ public class List {
 
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
+	}
+
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
 	}
 
 }
