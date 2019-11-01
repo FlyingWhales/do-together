@@ -11,7 +11,7 @@ import com.doto.service.TaskService;
 
 @RestController
 @RequestMapping("/task-list")
-public class TaskController {
+public class TaskController extends ApplicationController {
 
 	@Autowired
 	TaskService taskService;

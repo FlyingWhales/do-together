@@ -9,7 +9,7 @@ import com.doto.service.ListUrlService;
 
 @RestController
 @RequestMapping("/list-url")
-public class ListUrlController {
+public class ListUrlController extends ApplicationController {
 
 	@Autowired
 	ListUrlService listUrlService;
