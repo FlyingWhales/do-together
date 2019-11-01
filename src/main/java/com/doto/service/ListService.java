@@ -16,15 +16,15 @@ public class ListService {
 		this.listRepository = listRepository;
 	}
 
-	public List createList(List list) throws Exception {
+	public boolean createList(List list) {
 
 		List savedList = listRepository.save(list);
 
 		if (savedList.getListId() == null) {
-			throw new Exception("Liste kaydedilemedi"); // TODO: Handle properly
+			return false;
 		}
 
-		return savedList;
+		return true;
 	}
 
 	public Iterable<List> getUserLists(Long userId) {
