@@ -1,5 +1,7 @@
 package com.doto.service;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
 import com.doto.entity.List;
@@ -23,11 +25,29 @@ public class ListService {
 		}
 
 		return savedList;
-
 	}
 
 	public Iterable<List> getUserLists(Long userId) {
 		return listRepository.findByUserId(userId);
+	}
+
+	public List getListByUserId(Long userId, Long listId) {
+
+		return listRepository.findByUserIdAndListId(userId, listId).orElse(null);
+
+	}
+
+	public boolean delete(Long listId, Long userId) {
+		
+		List l = getListByUserId(userId, listId);
+		
+		if ( l != null) {
+			l.setActive(false);
+			listRepository.save(l);
+			return true;
+		}
+		
+		return false;
 	}
 
 }

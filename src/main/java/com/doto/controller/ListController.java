@@ -3,9 +3,11 @@ package com.doto.controller;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.doto.entity.List;
@@ -25,6 +27,7 @@ public class ListController extends ApplicationController {
 
 	@PostMapping(value = "/save-list")
 	public boolean saveList(HttpServletRequest request) {
+		//TODO : move logic to service
 		List list = new List();
 		list.setListName(request.getParameter("listname"));
 		list.setActive(true);
@@ -42,6 +45,15 @@ public class ListController extends ApplicationController {
 		}
 
 		return false;
+	}
+	
+	/*
+	 	It doesn't actually delete list but makes it invisible
+	 */
+	@DeleteMapping(value = "/delete-list")
+	public boolean deleteList(List list) {
+		//Long listId = Long.getLong(request.getParameter("listId"));
+		return listService.delete(list.getListId(), 1L);
 	}
 
 }
