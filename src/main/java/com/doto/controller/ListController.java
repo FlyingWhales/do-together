@@ -5,6 +5,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,14 +26,20 @@ public class ListController extends ApplicationController {
 
 	@PostMapping(value = "/save-list")
 	public boolean saveList(@Validated List list) {
-		return listService.createList(list);
+		list.setUserId(1L); //TODO : Get user id from session
+		return listService.saveList(list);
 	}
 	
-	/*
-	 	It doesn't actually delete list but makes it invisible
-	 */
+	@PutMapping(value = "/save-list")
+	public boolean updateList(@Validated List list) {
+		list.setUserId(1L); //TODO : Get user id from session
+		return listService.saveList(list);
+	}
+	
+	/* It doesn't actually delete list but makes it invisible */
 	@DeleteMapping(value = "/delete-list")
 	public boolean deleteList(List list) {
+		list.setUserId(1L); //TODO : Get user id from session
 		return listService.delete(list.getListId(), 1L);
 	}
 

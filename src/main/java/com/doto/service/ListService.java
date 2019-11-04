@@ -14,7 +14,7 @@ public class ListService {
 		this.listRepository = listRepository;
 	}
 
-	public boolean createList(List list) {
+	public boolean saveList(List list) {
 
 		List savedList = listRepository.save(list);
 
@@ -37,11 +37,11 @@ public class ListService {
 
 	public boolean delete(Long listId, Long userId) {
 		
-		List l = getListByUserId(userId, listId);
+		List list = getListByUserId(userId, listId);
 		
-		if ( l != null) {
-			l.setActive(false);
-			listRepository.save(l);
+		if ( list != null) {
+			list.setActive(false);
+			listRepository.save(list);
 			return true;
 		}
 		
