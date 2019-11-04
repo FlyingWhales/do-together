@@ -20,7 +20,7 @@ public class ListUrlService {
 
 	public String generateKey(Long listId, Date revokeDate) {
 
-		final String key = DotoUtis.getMD5(UUID.randomUUID().toString());
+		final String key = DotoUtis.getUniqueId();
 
 		ListUrl listUrl = new ListUrl();
 

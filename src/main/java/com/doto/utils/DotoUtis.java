@@ -2,6 +2,7 @@ package com.doto.utils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.UUID;
 
 public class DotoUtis {
 
@@ -24,11 +25,15 @@ public class DotoUtis {
 			return sb.toString();
 
 		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
+			// TODO Handle properly
 			e.printStackTrace();
 		}
 
 		return null;
+	}
+	
+	public static String getUniqueId() {
+		return getMD5(UUID.randomUUID().toString());
 	}
 
 }
