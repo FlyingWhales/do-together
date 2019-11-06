@@ -29,22 +29,24 @@ public class ListService {
 		return listRepository.findByUserId(userId);
 	}
 
-	public List getListByUserId(Long userId, Long listId) {
-
+	private List getListByUserId(Long userId, Long listId) {
 		return listRepository.findByUserIdAndListId(userId, listId).orElse(null);
+	}
 
+	public boolean isUserOwnerOfList(Long userId, Long listId) {
+		return getListByUserId(userId, listId) == null ? false : true;
 	}
 
 	public boolean delete(Long listId, Long userId) {
-		
+
 		List list = getListByUserId(userId, listId);
-		
-		if ( list != null) {
+
+		if (list != null) {
 			list.setActive(false);
 			listRepository.save(list);
 			return true;
 		}
-		
+
 		return false;
 	}
 
